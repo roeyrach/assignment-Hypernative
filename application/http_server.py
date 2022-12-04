@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from etherscan_scraping import get_data_from_address
 
-
 app = Flask(__name__)
 
 

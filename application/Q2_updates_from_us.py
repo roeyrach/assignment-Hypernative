@@ -7,6 +7,7 @@ import time
 SECONDS = 5
 
 
+# this function is used to get the data from the address
 def get_data_from_address():
     url = "https://docs.uniswap.org/contracts/v3/reference/deployments"
     response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
@@ -33,6 +34,7 @@ def get_data_from_address():
         file.close()
 
 
+# every SECONDS the function is called
 def timer(seconds):
     while True:
         get_data_from_address()

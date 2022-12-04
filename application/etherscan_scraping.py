@@ -2,6 +2,7 @@ import requests
 import bs4
 
 
+# this function is used to get the data from the address
 def get_data_from_address(address):
     url = f"https://etherscan.io/address/{address}#code"
     response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
@@ -21,4 +22,3 @@ def get_data_from_address(address):
                 for child2 in children2:
                     labels.append(child2.text)
     return labels
-

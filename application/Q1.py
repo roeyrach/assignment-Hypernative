@@ -7,6 +7,7 @@ json_files = []
 json_data = []
 
 
+# get the json files from the website
 def get_json():
     # get all json files from url
     url = 'https://github.com/0xTracker/ethereum-address-metadata/tree/master/data'
@@ -20,15 +21,15 @@ def get_json():
             json_files.append(url2)
 
 
+# decode json file
 def decode_json(line, index):
-    # decode json file
     response = requests.get(line)
     data = response.json()
     json_data.append((data, index))
 
 
+# create a csv file to store the data
 def json_to_csv():
-    # create a csv file to store the data
     with open('application/csv_file_Q1.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Chain", "Address", "Label"])
