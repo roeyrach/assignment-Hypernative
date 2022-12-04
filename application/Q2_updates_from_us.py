@@ -1,3 +1,4 @@
+import datetime
 import requests
 import bs4
 import csv
@@ -26,7 +27,6 @@ def get_data_from_address():
                 continue
             columns.append(td.text)
             counter += 1
-        print(columns)
         with open('csv_file_updates_Q2.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([columns[0], columns[1], columns[2]])
@@ -36,9 +36,9 @@ def get_data_from_address():
 def timer(seconds):
     while True:
         get_data_from_address()
+        print("last check at", datetime.datetime.now().strftime("%D %H:%M:%S"))
         time.sleep(seconds)
 
 
-# main function
 if __name__ == '__main__':
     timer(SECONDS)
